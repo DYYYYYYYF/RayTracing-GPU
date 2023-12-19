@@ -28,33 +28,10 @@ void Scene::InitScene(ConfigFile* config) {
 		_Renderables.push_back(floor);
 	}
 
-	RenderObject room;
-	Mesh* roomMesh = ((Renderer*)_Renderer)->GetMesh("room");
-	Material* textureMat = ((Renderer*)_Renderer)->GetMaterial("Texture");
-	if (roomMesh != nullptr && textureMat != nullptr) {
-		room.mesh = roomMesh;
-		room.material = textureMat;
-		room.SetTranslate(glm::vec3{ 0, 1, 0 });
-		room.SetRotate(glm::vec3{ 0, 0, 1 }, 90);
-		room.SetRotate(glm::vec3{ 0, 1, 0 }, 90);
-		room.SetRotate(glm::vec3{ 1, 0, 0 }, -90);
-		_Renderables.push_back(room);
-	}
-
-	RenderObject boat;
-	Mesh* boatMesh = ((Renderer*)_Renderer)->GetMesh("Boat");
-	Material* boatMat = ((Renderer*)_Renderer)->GetMaterial("Default");
-	if (boatMesh != nullptr && boatMat != nullptr) {
-		boat.mesh = boatMesh;
-		boat.material = boatMat;
-    boat.SetTranslate(glm::vec3{0, 0, 10});
-		_Renderables.push_back(boat);
-	}
-
-  Particals partical;
-  partical.SetPartialCount(256);
-  partical.SetMaterial(((Renderer*)_Renderer)->GetMaterial("Compute"));
-  (((Renderer*)_Renderer)->LoadPartical(partical));
+	Particals partical;
+	partical.SetPartialCount(256);
+	partical.SetMaterial(((Renderer*)_Renderer)->GetMaterial("Compute"));
+	(((Renderer*)_Renderer)->LoadPartical(partical));
 
 	INFO("Inited Scene.");
 }
