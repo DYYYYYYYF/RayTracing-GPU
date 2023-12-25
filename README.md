@@ -1,38 +1,8 @@
-# VulkanRenderDemo
-3D-Rendering of Vulkan 
+# RayTracing-GPU 
 
-CMake Files: (MacOS required Vulkan,GLM,GLFW)
+Implement "RayTracing in one weekend" on GPU 
 
-create a floder named build
-
-cd build then cmd 'cmake ..'
-
-cmd 'make'
-
-after all, it will create a executable program named VulkanTestDemo
-
-## Warn: Under refactory 
-By far, impl Triangle renderer.
-
-2023.11.06：Mesh、Material、Texture、Light、ComputeShader
-
-The foundational functions have finished.
-
-If your plants form is Windows, you could compile shaders by compile_shader.bat. (Dont forget set current VulkanSDK path)
-
-## Example shortcut
-
-mutiple_models 
-![](examples/shortcut/RenderEngine.png)
-
-light_shader 
-![](examples/shortcut/LightShader.png)
-
-mesh_grid 
-![](examples/shortcut/MeshGrid.png)
-
-compute_shader-calculation 
-![](examples/shortcut/ComputeShader.png)
+State: PAUSE
 
 ## 3rd-Libraries
 
