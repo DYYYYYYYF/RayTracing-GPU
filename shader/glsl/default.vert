@@ -21,7 +21,27 @@ layout( push_constant ) uniform constants
 } PushConstants;
 
 void main(){
-    gl_Position = cameraBuf.proj * cameraBuf.view * PushConstants.model * vec4(vPosition, 1.0f);
+   	float distance = 10000.0f;
+
+	vec4 vScreenPos = vec4(vPosition * distance, 1.0f);
+	if (gl_VertexIndex == 0){
+		vScreenPos = vec4(1.0f, 1.0f, 0.0f, 1.0f);
+	}
+	
+	if (gl_VertexIndex == 1){
+		vScreenPos = vec4(1.0f, -1.0f, 0.0f, 1.0f);
+	} 
+	
+	if (gl_VertexIndex == 2){
+		vScreenPos = vec4(-1.0f, -1.0f, 0.0f, 1.0f);
+	}
+	
+	if (gl_VertexIndex == 3){
+		vScreenPos = vec4(-1.0f, 1.0f, 0.0f, 1.0f);
+	}
+
+    gl_Position = vScreenPos;
+
     outColor = vColor;
 	outNormal = vNormal;
 	outPosition = vPosition;
